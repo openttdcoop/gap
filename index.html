@@ -8,11 +8,15 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
   <style type="text/css">
     body {
-      padding: 0 5vw;
+      margin: 0 3vw;
       font-family: 'Consolas', 'Monaco', monospace;
     }
     form > div {
       margin-bottom: 0.2em;
+    }
+    img {
+      image-rendering: pixelated;
+      max-width: 94vw;
     }
   </style>
 </head>
@@ -20,7 +24,12 @@
   <h1>OpenTTDCoop Train Gap Calculator</h1>
   <p>
     This calculates the number of doubled bridges/tunnels needed over a certain
-    gap size to maintain full throughput.
+    gap size to maintain full throughput. The gap is measured from the first tile
+    of the split to, and including, the farthest signal after the gap, but before
+    the merge.
+  </p>
+  <p>
+    <img src="example.png" alt="Example of how to measure gap length." />
   </p>
   <form>
     <div>Train Length: <input type="number" name="tl" min="1"></div>
