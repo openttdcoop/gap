@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +8,10 @@
   <title>OpenTTDCoop Train Gap Calculator</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon"/>
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+  <meta property="og:title" content="OpenTTDCoop Train Gap Calculator" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="{{site.url}}{{site.baseurl}}/example.png" />
+  <meta property="og:description" content="How many bridges do you need for a gap?" />
   <style type="text/css">
     body {
       margin: 0 3vw;
@@ -23,10 +29,11 @@
 <body>
   <h1>OpenTTDCoop Train Gap Calculator</h1>
   <p>
-    This calculates the number of doubled bridges/tunnels needed over a certain
+    This calculates the number of parallel bridges/tunnels needed over a certain
     gap size to maintain full throughput. The gap is measured from the first tile
     of the split to, and including, the farthest signal after the gap, but before
-    the merge.
+    the merge. This assumes a "dragging signal distance" of 2 (signal on every
+    other tile).
   </p>
   <p>
     <img src="example.png" alt="Example of how to measure gap length." />
