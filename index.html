@@ -42,7 +42,7 @@
     <div>Train Length: <input type="number" name="tl" min="1"></div>
     <div>Gap Size: <input type="number" name="gap" min="3"></div>
   </form>
-  <h2>Bridges/Tunnels Needed: <span id="out"></span></h2>
+  <h2>Bridges/Tunnels Needed: <span id="out">_</span></h2>
   <script type="text/javascript">
     const form = document.querySelector('form');
     const inputTl = document.querySelector('input[name=tl]');
@@ -56,7 +56,7 @@
       const tl = Number(inputTl.value);
       const gap = Number(inputGap.value);
 
-      if (!tl || !gap) out.innerText = '';
+      if (!tl || !gap) out.innerText = '_';
       else {
         const n = Math.ceil((gap - 4) / (tl + 2)) + 1;
         out.innerText = Math.max(n, 2);
