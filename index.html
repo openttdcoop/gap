@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>OpenTTDCoop Train Gap Calculator</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+  <style type="text/css">
+    body {
+      padding: 0 5vw;
+      font-family: 'Consolas', 'Monaco', monospace;
+    }
+    form > div {
+      margin-bottom: 0.2em;
+    }
+  </style>
+</head>
+<body>
+  <h1>OpenTTDCoop Train Gap Calculator</h1>
+  <p>
+    This calculates the number of doubled bridges/tunnels needed over a certain
+    gap size to maintain full throughput.
+  </p>
+  <form>
+    <div>Train Length: <input type="number" name="tl" min="1"></div>
+    <div>Gap Size: <input type="number" name="gap" min="3"></div>
+  </form>
+  <h2>Bridges/Tunnels Needed: <span id="out"></span></h2>
+  <script type="text/javascript">
+    const form = document.querySelector('form');
+    const inputTl = document.querySelector('input[name=tl]');
+    const inputGap = document.querySelector('input[name=gap]');
+    const inputs = [ inputTl, inputGap ];
+    const out = document.getElementById('out');
+
+    function recalculate() {
+      if (!form.reportValidity()) return;
+
+      const tl = Number(inputTl.value);
+      const gap = Number(inputGap.value);
+
+      if (!tl || !gap) out.innerText = '';
+      else {
+        const n = Math.ceil((gap - 4) / (tl + 2)) + 1;
+        out.innerText = Math.max(n, 2);
+      }
+    }
+
+    for (const inp of inputs) {
+      inp.oninput = recalculate;
+    }
+  </script>
+</body>
+</html>
