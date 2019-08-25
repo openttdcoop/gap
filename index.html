@@ -51,16 +51,19 @@
     const out = document.getElementById('out');
 
     function recalculate() {
+      out.innerText = '_';
+
       if (!form.reportValidity()) return;
 
       const tl = Number(inputTl.value);
       const gap = Number(inputGap.value);
 
-      if (!tl || !gap) out.innerText = '_';
-      else {
-        const n = Math.ceil((gap - 4) / (tl + 2)) + 1;
-        out.innerText = Math.max(n, 2);
-      }
+      if (!tl || !gap) return;
+
+      const n = Math.ceil((gap - 4) / (tl + 2)) + 1;
+      out.innerText = Math.max(n, 2);
+
+      out.innerText = text;
     }
 
     for (const inp of inputs) {
